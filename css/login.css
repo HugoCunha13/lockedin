@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #5bb8f5 0%, #3a8fdf 40%, #a0c4f8 100%);
+  z-index: 0;
+}
+
+.bg::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  border-radius: 50%;
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.bg::after {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+  border-radius: 50%;
+  animation: pulse 8s ease-in-out infinite reverse;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: rgba(220, 235, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 8px 40px rgba(30, 90, 180, 0.18);
+}
+
+.logo-circle {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #3a9ef5, #1a6fd4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 18px rgba(30, 100, 220, 0.4);
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #4a5568;
+  margin-bottom: 24px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 13px 44px;
+  border: 1.5px solid rgba(150, 180, 230, 0.6);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  color: #1a1a2e;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input::placeholder {
+  color: #8a9ab5;
+}
+
+.input-group input:focus {
+  border-color: #3a9ef5;
+  box-shadow: 0 0 0 3px rgba(58, 158, 245, 0.18);
+  background: rgba(255,255,255,0.9);
+}
+
+.icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7a9bc0;
+}
+
+.icon-right {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7a9bc0;
+  cursor: pointer;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  font-size: 0.85rem;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4a5568;
+  cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+  accent-color: #3a9ef5;
+  width: 15px;
+  height: 15px;
+}
+
+.forgot {
+  color: #3a9ef5;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.forgot:hover {
+  color: #1a6fd4;
+}
+
+.btn-entrar {
+  width: 100%;
+  padding: 13px;
+  background: linear-gradient(135deg, #3a9ef5, #1a6fd4);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(30, 100, 220, 0.35);
+}
+
+.btn-entrar:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  color: #8a9ab5;
+  font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(150, 180, 230, 0.5);
+}
+
+.btn-social {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(150, 180, 230, 0.5);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: #1a1a2e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-social:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.register-link {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #4a5568;
+  margin-top: 14px;
+}
+
+.register-link a {
+  color: #3a9ef5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  color: #1a6fd4;
+}
