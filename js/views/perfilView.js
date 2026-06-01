@@ -1,3 +1,6 @@
+import { renderNavbar } from "/js/views/navbarView.js";
+renderNavbar("Definições");
+
 const utilizador = JSON.parse(localStorage.getItem("sessaoAtiva"));
 
 if (!utilizador) {
