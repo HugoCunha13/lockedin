@@ -1,26 +1,33 @@
-import Utilizador from "../models/utilizadorModel.js";
-
 const form = document.getElementById("loginForm");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value;
 
-    const utilizadores = JSON.parse(localStorage.getItem("utilizadores")) || [];
+    try {
+        const response = await fetch("http://localhost:3000/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+        });
 
-    const encontrado = utilizadores.find(function(u) {
-        return u.email === email && u.password === password;
-    });
+        if (!response.ok) {
+            mostrarErro("Email ou palavra-passe incorretos.");
+            return;
+        }
 
-    if (!encontrado) {
-        mostrarErro("Email ou palavra-passe incorretos.");
-        return;
+        const data = await response.json();
+
+        localStorage.setItem("token", data.accessToken);
+        localStorage.setItem("sessaoAtiva", JSON.stringify(data.user));
+
+        window.location.href = "/html/principal.html";
+
+    } catch (err) {
+        mostrarErro("Erro ao ligar ao servidor.");
     }
-
-    localStorage.setItem("sessaoAtiva", JSON.stringify(encontrado));
-    window.location.href = "principal.html";
 });
 
 function mostrarErro(mensagem) {

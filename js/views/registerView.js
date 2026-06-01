@@ -1,8 +1,6 @@
-import Utilizador from "../models/utilizadorModel.js";
-
 const form = document.getElementById("registerForm");
 
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", async function(e) {
     e.preventDefault();
 
     const nome = document.getElementById("nome").value.trim();
@@ -15,23 +13,43 @@ form.addEventListener("submit", function(e) {
         return;
     }
 
-    const utilizadores = JSON.parse(localStorage.getItem("utilizadores")) || [];
+    try {
+        const response = await fetch("http://localhost:3000/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                nome,
+                email,
+                password,
+                xp: 0,
+                tarefas: [],
+                sessoes: [],
+                conquistas: [],
+                estatisticas: {
+                    totalTarefasConcluidas: 0,
+                    totalSessoes: 0,
+                    minutosEstudo: 0,
+                    conquistasDesbloqueadas: 0,
+                    xpTotal: 0
+                }
+            })
+        });
 
-    const jaExiste = utilizadores.find(function(u) {
-        return u.email === email;
-    });
+        if (!response.ok) {
+            mostrarErro("Já existe uma conta com este email.");
+            return;
+        }
 
-    if (jaExiste) {
-        mostrarErro("Já existe uma conta com este email.");
-        return;
+        const data = await response.json();
+
+        localStorage.setItem("token", data.accessToken);
+        localStorage.setItem("sessaoAtiva", JSON.stringify(data.user));
+
+        window.location.href = "/html/principal.html";
+
+    } catch (err) {
+        mostrarErro("Erro ao ligar ao servidor.");
     }
-
-    const novoUtilizador = new Utilizador(nome, email, password);
-    utilizadores.push(novoUtilizador);
-    localStorage.setItem("utilizadores", JSON.stringify(utilizadores));
-
-    localStorage.setItem("sessaoAtiva", JSON.stringify(novoUtilizador));
-    window.location.href = "principal.html";
 });
 
 function mostrarErro(mensagem) {
