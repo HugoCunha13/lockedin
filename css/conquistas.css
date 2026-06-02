@@ -1,0 +1,118 @@
+.page {
+    padding: 40px 50px 40px 50px; /* troca o padding que já tens por este */
+    margin-left: 110px;
+    margin-right: 40px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.page h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.page > p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 30px;
+}
+
+.conquistas-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 24px;
+}
+
+.tab {
+    flex: 1;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 14px 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #aab0c0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tab.active {
+    color: #2b78ff;
+    border-bottom: 2px solid #2b78ff;
+}
+
+.conquistas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.conquista-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #f0f2f8;
+}
+
+.conquista-item.conquistada {
+    background: #fffdf5;
+}
+
+.conquista-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.conquista-icon.bloqueada {
+    background: #dde3f0;
+    color: #aab0c0;
+}
+
+.conquista-info {
+    flex: 1;
+}
+
+.conquista-nome {
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 3px;
+}
+
+.conquista-desc {
+    font-size: 0.76rem;
+    color: #aab0c0;
+}
+
+.conquista-status {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.conquista-status.check {
+    color: #22c55e;
+}
+
+.conquista-status.lock {
+    color: #333;
+    font-size: 16px;
+}
+
+.hidden {
+    display: none;
+}

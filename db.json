@@ -1,9 +1,9 @@
 {
   "users": [
     {
-      "email": "luana@gmail.com",
-      "password": "$2a$10$dbvnrS1X71Lvti6ek.hu7.BR6C7mLxHE6qBqKFmpSuUdwDK4R8qCC",
-      "nome": "luana",
+      "email": "hugo@gmail.com",
+      "password": "$2a$10$9ARYHzB70IJHOKQ0fnlSCehXGsW9Jl40gpYY21LT6XmrcVDwBgO/a",
+      "nome": "hugo",
       "xp": 0,
       "tarefas": [],
       "sessoes": [],
@@ -16,10 +16,133 @@
         "xpTotal": 0
       },
       "id": 1
+    },
+    {
+      "email": "ronaldo@gmail.com",
+      "password": "$2a$10$.inIsRE5hrrZbedheMm7Y.roWoYjfBE7QJjjwONfd3KWh1pj0HpRi",
+      "nome": "ronaldo",
+      "xp": 0,
+      "tarefas": [],
+      "sessoes": [],
+      "conquistas": [],
+      "estatisticas": {
+        "totalTarefasConcluidas": 0,
+        "totalSessoes": 0,
+        "minutosEstudo": 0,
+        "conquistasDesbloqueadas": 0,
+        "xpTotal": 0
+      },
+      "id": 2
     }
   ],
   "tarefas": [],
   "sessoes": [],
   "missoes": [],
-  "conquistas": []
+  "conquistas": [
+    {
+      "id": 1,
+      "nome": "Organizado",
+      "descricao": "Criaste a tua primeira tarefa",
+      "icone": "fa-list-check",
+      "cor": "#4285F4"
+    },
+    {
+      "id": 2,
+      "nome": "Focado",
+      "descricao": "Iniciaste a tua primeira sessão",
+      "icone": "fa-star",
+      "cor": "#FF6B35"
+    },
+    {
+      "id": 3,
+      "nome": "Ansioso",
+      "descricao": "Concluíste todas as tarefas disponíveis",
+      "icone": "fa-clock",
+      "cor": "#06B6D4"
+    },
+    {
+      "id": 4,
+      "nome": "Disciplinado",
+      "descricao": "3 dias seguidos de foco",
+      "icone": "fa-user",
+      "cor": "#EC4899"
+    },
+    {
+      "id": 5,
+      "nome": "Foco inicial",
+      "descricao": "Concluíste 10 sessões de foco",
+      "icone": "fa-plane",
+      "cor": "#22C55E"
+    },
+    {
+      "id": 6,
+      "nome": "Produtivo",
+      "descricao": "Concluíste 25 tarefas",
+      "icone": "fa-crown",
+      "cor": "#A855F7"
+    },
+    {
+      "id": 7,
+      "nome": "Rotina",
+      "descricao": "7 dias seguidos de foco",
+      "icone": "fa-bullseye",
+      "cor": "#EF4444"
+    },
+    {
+      "id": 8,
+      "nome": "Focus master",
+      "descricao": "Concluíste 50 sessões",
+      "icone": "fa-trophy",
+      "cor": "#EAB308"
+    },
+    {
+      "id": 9,
+      "nome": "Caçador de tarefas",
+      "descricao": "Concluíste 250 tarefas",
+      "icone": "fa-crosshairs",
+      "cor": "#6366F1"
+    },
+    {
+      "id": 10,
+      "nome": "Sequência perfeita",
+      "descricao": "100 dias focado",
+      "icone": "fa-tooth",
+      "cor": "#64748B"
+    },
+    {
+      "id": 11,
+      "nome": "Sem distrações",
+      "descricao": "Desativaste as notificações",
+      "icone": "fa-screwdriver-wrench",
+      "cor": "#F97316"
+    },
+    {
+      "id": 12,
+      "nome": "Rápido",
+      "descricao": "Concluíste uma sessão de 10 minutos",
+      "icone": "fa-motorcycle",
+      "cor": "#10B981"
+    },
+    {
+      "id": 13,
+      "nome": "Indisciplinado",
+      "descricao": "Não concluíste a sessão",
+      "icone": "fa-shield",
+      "cor": "#6B7280"
+    },
+    {
+      "id": 14,
+      "nome": "Missões cumpridas",
+      "descricao": "Completaste todas as missões diárias",
+      "icone": "fa-briefcase",
+      "cor": "#8B5CF6"
+    },
+    {
+      "id": 15,
+      "nome": "Super Focado",
+      "descricao": "Concluíste 100 sessões de foco",
+      "icone": "fa-chess-rook",
+      "cor": "#1D4ED8"
+    }
+  ]
 }
