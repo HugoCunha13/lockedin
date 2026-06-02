@@ -1,9 +1,10 @@
 {
   "users": [
     {
-      "email": "hugo@gmail.com",
-      "password": "$2a$10$9ARYHzB70IJHOKQ0fnlSCehXGsW9Jl40gpYY21LT6XmrcVDwBgO/a",
-      "nome": "hugo",
+      "email": "ronaldo@gmail.com",
+      "password": "$2a$10$cYJD8veDhXVmdT58CMWKBetDmJj1B8na8.H0ItMjaP4kABh7N3MyW",
+      "nome": "ronaldo",
+      "role": "admin",
       "xp": 0,
       "tarefas": [],
       "sessoes": [],
@@ -16,23 +17,6 @@
         "xpTotal": 0
       },
       "id": 1
-    },
-    {
-      "email": "ronaldo@gmail.com",
-      "password": "$2a$10$.inIsRE5hrrZbedheMm7Y.roWoYjfBE7QJjjwONfd3KWh1pj0HpRi",
-      "nome": "ronaldo",
-      "xp": 0,
-      "tarefas": [],
-      "sessoes": [],
-      "conquistas": [],
-      "estatisticas": {
-        "totalTarefasConcluidas": 0,
-        "totalSessoes": 0,
-        "minutosEstudo": 0,
-        "conquistasDesbloqueadas": 0,
-        "xpTotal": 0
-      },
-      "id": 2
     }
   ],
   "tarefas": [],

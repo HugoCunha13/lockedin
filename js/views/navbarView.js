@@ -14,12 +14,9 @@ export function renderNavbar(activePage) {
         { nome: "Tarefas", href: "/html/tarefas.html", icon: "fa-list-check" },
         { nome: "Conquistas", href: "/html/conquistas.html", icon: "fa-trophy" },
         { nome: "Estatísticas", href: "/html/estatisticas.html", icon: "fa-chart-simple" },
-        { nome: "Definições", href: "/html/perfil.html", icon: "fa-gear" }
+        { nome: "Definições", href: utilizador.role === "admin" ? "/html/admin.html" : "/html/perfil.html", icon: "fa-gear" }
     ];
 
-    if (utilizador.role === "admin") {
-        pages.push({ nome: "Admin", href: "/html/admin.html", icon: "fa-star" });
-    }
 
     document.getElementById("sidebar").innerHTML = `
         <aside class="sidebar">

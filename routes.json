@@ -1,5 +1,4 @@
 {
-  "users": 600,
   "/tarefas*": "/660/tarefas$1",
   "/sessoes*": "/660/sessoes$1",
   "/missoes*": "/660/missoes$1",

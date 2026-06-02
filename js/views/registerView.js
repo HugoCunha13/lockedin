@@ -1,3 +1,5 @@
+import Utilizador from "../models/utilizadorModel.js";
+
 const form = document.getElementById("registerForm");
 
 form.addEventListener("submit", async function(e) {
@@ -14,25 +16,12 @@ form.addEventListener("submit", async function(e) {
     }
 
     try {
+        const novoUtilizador = new Utilizador(nome, email, password);
+
         const response = await fetch("http://localhost:3000/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                nome,
-                email,
-                password,
-                xp: 0,
-                tarefas: [],
-                sessoes: [],
-                conquistas: [],
-                estatisticas: {
-                    totalTarefasConcluidas: 0,
-                    totalSessoes: 0,
-                    minutosEstudo: 0,
-                    conquistasDesbloqueadas: 0,
-                    xpTotal: 0
-                }
-            })
+            body: JSON.stringify(novoUtilizador)
         });
 
         if (!response.ok) {

@@ -1,9 +1,9 @@
 class Utilizador {
     constructor(nome, email, password) {
-        this.id = crypto.randomUUID();
         this.nome = nome;
         this.email = email;
         this.password = password;
+        this.role = "user";
         this.xp = 0;
         this.tarefas = [];
         this.sessoes = [];
