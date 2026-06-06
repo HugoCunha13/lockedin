@@ -1,0 +1,165 @@
+.page {
+    padding: 40px 50px;
+    margin-left: 110px;
+    margin-right: 40px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.principal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.card h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.missao-item {
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #f0f2f8;
+    margin-bottom: 12px;
+}
+
+.missao-item:last-child {
+    margin-bottom: 0;
+}
+
+.missao-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+}
+
+.missao-titulo {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.missao-progresso {
+    font-size: 0.78rem;
+    color: #22c55e;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.missao-xp {
+    font-size: 0.78rem;
+    color: #aab0c0;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: #eef0f8;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2b78ff;
+    border-radius: 10px;
+    transition: width 0.3s;
+}
+
+.right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.focus-card {
+    background: linear-gradient(135deg, #2b78ff, #5b9fff);
+    border-radius: 16px;
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.focus-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.focus-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.focus-card h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #aab0c0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.stat-value {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #111;
+}
+
+.sem-missoes {
+    color: #aab0c0;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 20px 0;
+}
