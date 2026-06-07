@@ -1,0 +1,470 @@
+.foco-page {
+    margin-left: 90px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 55px 70px;
+}
+
+.foco-page.sessao-ativa {
+    margin-left: 0;
+    padding: 55px 110px;
+}
+
+#sidebar.hidden {
+    display: none !important;
+}
+
+.foco-header {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto 35px;
+}
+
+.foco-header h1 {
+    color: white;
+    font-size: 2.6rem;
+    margin-bottom: 8px;
+}
+
+.foco-header p {
+    color: white;
+    font-size: 1rem;
+}
+
+.foco-card {
+    background: white;
+    width: 760px;
+    margin: 0 auto;
+    padding: 45px 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 14px rgba(0,0,0,0.25);
+    text-align: center;
+}
+
+.foco-card h2 {
+    color: #073f8f;
+    font-size: 1.8rem;
+}
+
+.foco-card > p {
+    color: #888;
+    margin: 8px 0 28px;
+}
+
+.modos-foco {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.modo-card {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    padding: 18px;
+    cursor: pointer;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.18);
+}
+
+.modo-card:hover {
+    transform: translateY(-2px);
+    border-color: #073f8f;
+}
+
+.modo-card strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+}
+
+.modo-card span {
+    font-size: 0.85rem;
+    color: #555;
+}
+
+.area-livre {
+    border: 1px solid #ddd;
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.area-livre label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.area-livre input {
+    width: 80%;
+    accent-color: #073f8f;
+}
+
+.area-livre p {
+    margin: 10px 0;
+}
+
+.btn-principal {
+    background: #073f8f;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.notificacoes-btn {
+    width: 100%;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 18px;
+    padding: 14px 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.18);
+}
+
+.notificacoes-btn span {
+    font-size: 1.7rem;
+}
+
+.notificacoes-btn div {
+    flex: 1;
+}
+
+.notificacoes-btn strong,
+.notificacoes-btn small {
+    display: block;
+}
+
+.notificacoes-btn small {
+    color: #777;
+}
+
+.notificacoes-btn b {
+    font-size: 2rem;
+}
+
+.sessao-layout {
+    width: fit-content;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 540px 300px;
+    gap: 42px;
+    align-items: start;
+}
+
+.timer-card {
+    width: 540px;
+    height: 500px;
+    border: 1px solid rgba(255,255,255,0.85);
+    border-radius: 12px;
+    text-align: center;
+    padding-top: 22px;
+    color: white;
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+}
+
+.timer-card h2 {
+    font-size: 2.2rem;
+    font-weight: 400;
+}
+
+.circulo {
+    width: 315px;
+    height: 315px;
+    margin: 22px auto 18px;
+    position: relative;
+}
+
+#progressSvg {
+    width: 315px;
+    height: 315px;
+    transform: rotate(-90deg);
+}
+
+.circle-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.45);
+    stroke-width: 18;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: white;
+    stroke-width: 18;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.4s linear;
+}
+
+.cadeado-area {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cadeado-area strong {
+    color: white;
+    font-size: 2rem;
+    margin-top: -8px;
+}
+
+#lsvg {
+    display: block;
+    overflow: visible;
+}
+
+.lb {
+    fill: white;
+}
+
+.ls {
+    fill: none;
+    stroke: white;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+}
+
+.lh {
+    fill: #7fa4ff;
+}
+
+#sg {
+    transform-box: fill-box;
+    transform-origin: 100% 100%;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#sg.open {
+    transform: rotate(45deg);
+}
+
+.btn-pausar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background: transparent;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.info-sessao {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.info-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    min-height: 175px;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+}
+
+.info-card h3 {
+    color: #073f8f;
+    margin-bottom: 22px;
+}
+
+.info-card p {
+    margin-bottom: 14px;
+}
+
+.progresso-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+}
+
+.btn-terminar {
+    border: none;
+    background: white;
+    color: #ef4444;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 12px 14px;
+    border-radius: 10px;
+    min-width: 115px;
+    text-align: center;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.12);
+}
+
+.btn-terminar span {
+    display: block;
+    font-size: 2rem;
+    color: #ef4444;
+    margin-bottom: 6px;
+}
+
+.btn-terminar small {
+    display: block;
+    color: #ef4444;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.barra {
+    width: 100%;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#barraProgresso {
+    width: 0%;
+    height: 100%;
+    background: #073f8f;
+    border-radius: 20px;
+    transition: width 0.4s;
+}
+
+#percentagem {
+    display: block;
+    margin-top: 8px;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.modal-card {
+    width: 560px;
+    background: white;
+    border-radius: 14px;
+    padding: 36px 34px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+}
+
+.modal-card h2 {
+    text-align: center;
+    margin-bottom: 22px;
+    color: #111;
+    font-size: 1.7rem;
+}
+
+.modal-confirmacao {
+    text-align: center;
+}
+
+.modal-confirmacao p {
+    color: #666;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.modal-confirmacao strong {
+    color: #073f8f;
+    font-size: 1.2rem;
+}
+
+.modal-pergunta {
+    color: #111 !important;
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 28px;
+}
+
+.btn-cancelar {
+    border: none;
+    background: #ffdede;
+    color: #ef4444;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-cancelar:hover {
+    background: #ffc9c9;
+}
+
+.btn-confirmar {
+    border: none;
+    background: #073f8f;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-confirmar:hover {
+    background: #052f6b;
+}
+
+.btn-confirmar-perigo {
+    background: #ef4444;
+    box-shadow: 0 5px 10px rgba(239, 68, 68, 0.25);
+}
+
+.btn-confirmar-perigo:hover {
+    background: #dc2626;
+}
+
+.tarefa-opcao {
+    width: 100%;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.tarefa-opcao:hover {
+    background: #e1ecff;
+}
+
+.tarefa-opcao strong,
+.tarefa-opcao span,
+.tarefa-opcao small {
+    display: block;
+}
+
+.sem-tarefas {
+    text-align: center;
+    color: #666;
+}
+
+#modalTarefas .modal-card {
+    text-align: center;
+}
+
+#btnFecharModal {
+    display: block;
+    margin: 25px auto 0;
+}
+
+.hidden {
+    display: none !important;
+}

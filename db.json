@@ -17,6 +17,205 @@
         "xpTotal": 0
       },
       "id": 1
+    },
+    {
+      "email": "cesar0santos6@gmail.com",
+      "password": "$2a$10$iys.txpYB55rSalO1Ptri.p4CmKLdyL6R7eh8argOM6T026965u1e",
+      "nome": "Cesar",
+      "role": "user",
+      "xp": 900,
+      "tarefas": [],
+      "sessoes": [
+        {
+          "id": "00542858-99fc-4b84-9634-fd036cb956fd",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T17:01:11.635Z",
+          "dataFim": "2026-06-07T17:11:21.641Z"
+        },
+        {
+          "id": "6272b3e1-dae7-43b2-bdb9-397210b6f0cf",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T17:41:24.960Z",
+          "dataFim": "2026-06-07T17:51:24.967Z"
+        },
+        {
+          "id": "e829c459-310f-403d-a8ce-f641e829f2d4",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:25:38.418Z",
+          "dataFim": "2026-06-07T18:25:48.430Z"
+        },
+        {
+          "id": "550ce50c-4efd-4d7b-8768-258901345619",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:26:05.614Z",
+          "dataFim": "2026-06-07T18:26:15.625Z"
+        },
+        {
+          "id": "ca6440a9-4d40-4967-a31f-76a22c09a8e6",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:36:54.887Z",
+          "dataFim": "2026-06-07T18:37:04.898Z"
+        },
+        {
+          "id": "377f521a-3678-4e3f-ab20-7bcdb106fa41",
+          "modo": "livre",
+          "duracao": 30,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:37:17.219Z",
+          "dataFim": "2026-06-07T18:37:47.223Z"
+        },
+        {
+          "id": "1a4474da-bf8c-493e-aab4-30ab9f9469ce",
+          "modo": "livre",
+          "duracao": 15,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:37:55.499Z",
+          "dataFim": "2026-06-07T18:38:10.508Z"
+        },
+        {
+          "id": "1f7cd6e9-5719-483f-9c4a-80af51ab40d8",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:41:22.019Z",
+          "dataFim": "2026-06-07T18:41:32.023Z"
+        },
+        {
+          "id": "6c19d316-790e-48a3-85a1-1c920aa063a6",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:45:48.819Z",
+          "dataFim": "2026-06-07T18:45:58.836Z"
+        },
+        {
+          "id": "161f5940-15c5-4d02-be57-f019d94ae384",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:56:41.190Z",
+          "dataFim": "2026-06-07T18:56:51.201Z"
+        },
+        {
+          "id": "1639afc6-d2dc-4543-bfa5-1668b2a49151",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T18:56:57.866Z",
+          "dataFim": "2026-06-07T18:57:07.874Z"
+        },
+        {
+          "id": "e407c09a-e98d-46d2-a9fc-00575bfd7fcb",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:00:36.446Z",
+          "dataFim": "2026-06-07T19:00:46.458Z"
+        },
+        {
+          "id": "c92a4c0b-c11e-4ec1-866a-eb589e072bf3",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:01:05.280Z",
+          "dataFim": "2026-06-07T19:01:15.297Z"
+        },
+        {
+          "id": "74a32349-c701-4654-9ec5-de6a772f1050",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:11:36.632Z",
+          "dataFim": "2026-06-07T19:11:46.646Z"
+        },
+        {
+          "id": "bc20c4a3-885a-4b72-9d1d-35e05ab44b47",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:12:43.837Z",
+          "dataFim": "2026-06-07T19:12:53.848Z"
+        },
+        {
+          "id": "66622f03-b5b1-4093-82ad-026da60e7bf3",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:18:02.937Z",
+          "dataFim": "2026-06-07T19:18:12.951Z"
+        },
+        {
+          "id": "755df48c-1bd5-466c-aefb-6e85234399d3",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T19:53:27.876Z",
+          "dataFim": "2026-06-07T19:53:37.886Z"
+        },
+        {
+          "id": "5b5fb5a7-9a62-4a7c-bd39-904dae490084",
+          "modo": "livre",
+          "duracao": 30,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-07T20:01:05.893Z",
+          "dataFim": "2026-06-07T20:01:36.590Z"
+        }
+      ],
+      "conquistas": [],
+      "estatisticas": {
+        "totalTarefasConcluidas": 0,
+        "totalSessoes": 18,
+        "minutosEstudo": 225,
+        "conquistasDesbloqueadas": 0,
+        "xpTotal": 900
+      },
+      "id": 2
     }
   ],
   "tarefas": [],

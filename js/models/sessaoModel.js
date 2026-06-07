@@ -1,10 +1,14 @@
-class SessaoFoco {
-    constructor(duracao) {
+class Sessao {
+    constructor(modo, duracao, tarefaId = null, nomeTarefa = null) {
         this.id = crypto.randomUUID();
+        this.modo = modo;
         this.duracao = duracao;
-        this.dataInicio = new Date();
-        this.xpRecompensa = 30;
+        this.tarefaId = tarefaId;
+        this.nomeTarefa = nomeTarefa;
+        this.concluida = false;
+        this.dataInicio = new Date().toISOString();
+        this.dataFim = null;
     }
 }
 
-export default SessaoFoco;
+export default Sessao;
