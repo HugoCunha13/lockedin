@@ -94,7 +94,7 @@ function calcularMinutosHoje(sessoes) {
     if (!sessoes || sessoes.length === 0) return 0;
     const hoje = new Date().toDateString();
     return sessoes
-        .filter(s => new Date(s.data).toDateString() === hoje)
+        .filter(s => new Date(s.dataInicio).toDateString() === hoje)
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
@@ -105,13 +105,13 @@ function calcularMinutosSemana(sessoes) {
     inicioSemana.setDate(agora.getDate() - agora.getDay());
     inicioSemana.setHours(0, 0, 0, 0);
     return sessoes
-        .filter(s => new Date(s.data) >= inicioSemana)
+        .filter(s => new Date(s.dataInicio) >= inicioSemana)
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
 function calcularSequencia(sessoes) {
     if (!sessoes || sessoes.length === 0) return 0;
-    const dias = [...new Set(sessoes.map(s => new Date(s.data).toDateString()))];
+    const dias = [...new Set(sessoes.map(s => new Date(s.dataInicio).toDateString()))];
     let sequencia = 0;
     const hoje = new Date();
     for (let i = 0; i < 365; i++) {
