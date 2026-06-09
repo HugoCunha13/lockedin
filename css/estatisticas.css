@@ -1,0 +1,227 @@
+.page {
+    padding: 40px 50px;
+    margin-left: 110px;
+    margin-right: 40px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.page h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.page>p {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.row {
+    display: grid;
+    gap: 20px;
+}
+
+.row-2 {
+    grid-template-columns: 1.4fr 1fr;
+}
+
+.row-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+}
+
+.card h3 {
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.card-centrado {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-concluidas {
+    background: white;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-concluidas h3 {
+    margin-bottom: 25px;
+}
+
+
+.nivel-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.nivel-icon {
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #2b78ff, #5b9fff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+}
+
+.nivel-texto h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.xp-bar {
+    height: 10px;
+    background: #eef0f8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.xp-fill {
+    height: 100%;
+    background: #2b78ff;
+    border-radius: 10px;
+}
+
+.xp-info {
+    font-size: 0.8rem;
+    color: #aab0c0;
+}
+
+.sessoes-count {
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.consistencia-dots {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.dot.ativo {
+    background: #22c55e;
+}
+
+.dot.inativo {
+    background: #e2e8f0;
+}
+
+.consistencia-label {
+    font-size: 0.78rem;
+    color: #aab0c0;
+}
+
+.tempo-item {
+    margin-bottom: 12px;
+}
+
+.tempo-item .label {
+    font-size: 0.78rem;
+    color: #aab0c0;
+    margin-bottom: 2px;
+}
+
+.tempo-item .valor {
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.analise-lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.analise-lista li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+}
+
+.analise-lista li::before {
+    content: "•";
+    color: #2b78ff;
+    font-size: 1.2rem;
+}
+
+.objetivo-valores {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.objetivo-atual {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.objetivo-total {
+    font-size: 1.2rem;
+    color: #aab0c0;
+}
+
+.objetivo-bar {
+    height: 10px;
+    background: #eef0f8;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.objetivo-fill {
+    height: 100%;
+    background: #2b78ff;
+    border-radius: 10px;
+}
+
+.objetivo-info {
+    font-size: 0.78rem;
+    color: #aab0c0;
+}
+
+.objetivo-sub {
+    font-size: 0.78rem;
+    color: #aab0c0;
+    margin-bottom: 16px;
+}
