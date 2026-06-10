@@ -1,163 +1,320 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locked In</title>
+    <title>LockedIn - Entra no teu modo de foco</title>
+
     <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <header class="hero">
-        <div class="hero"></div>
+    <header class="cabecalho" id="inicio">
+        <nav class="barra-navegacao">
 
-        <nav>
-            <a href="login.html" class="login-btn">INICIAR SESSÃO</a>
+            <a href="#inicio" class="marca">
+                <img src="../img/logotipopng.png" alt="LockedIn Logo">
+            </a>
+
+            <div class="links-navegacao">
+                <a href="#funcionalidades">Funcionalidades</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#comecar">Começar</a>
+            </div>
+
+            <a href="/html/login.html" class="botao-login">
+                Iniciar sessão
+            </a>
+
         </nav>
 
-        <div class="hero-content">
-            <h1 class="logo">Locked<span>In</span></h1>
+        <section class="conteudo-cabecalho">
+            <div class="texto-cabecalho">
+                <span class="etiqueta">Produtividade · Foco · Gamificação</span>
 
-            <p class="subtitle">Entra no teu modo de foco</p>
+                <h1>Entra no teu modo de foco.</h1>
 
-            <div class="mini-features">
-                <div>⏱ Sessões inteligentes</div>
-                <div>⭐ Gamificação motivadora</div>
-                <div>🧾 Tarefas rápidas e simples</div>
+                <p>
+                    Organiza tarefas, inicia sessões de foco, ganha XP e acompanha a tua evolução num só lugar.
+                </p>
+
+                <div class="acoes-cabecalho">
+                    <a href="/html/register.html" class="botao-primario">Começar agora</a>
+                    <a href="#funcionalidades" class="botao-secundario">Ver funcionalidades</a>
+                </div>
+
+                <div class="estatisticas-cabecalho">
+                    <div>
+                        <strong>+50 XP</strong>
+                        <span>por sessão concluída</span>
+                    </div>
+
+                    <div>
+                        <strong>100%</strong>
+                        <span>focado nos teus objetivos</span>
+                    </div>
+
+                    <div>
+                        <strong>24/7</strong>
+                        <span>organização do estudo</span>
+                    </div>
+                </div>
             </div>
-        </div>
 
+            <div class="previsualizacao-cabecalho">
+                <div class="janela-app">
+
+                    <div class="topo-janela">
+                        <button class="ponto ativo" data-slide="0" aria-label="Ver sessão de foco"></button>
+                        <button class="ponto" data-slide="1" aria-label="Ver tarefas"></button>
+                        <button class="ponto" data-slide="2" aria-label="Ver conquistas"></button>
+                    </div>
+
+                    <div class="diapositivo-previsualizacao ativo" id="diapositivo-0">
+                        <div class="cartao-previsualizacao ativo">
+                            <i class="fa-solid fa-stopwatch"></i>
+                            <div>
+                                <h3>Sessão de foco</h3>
+                                <p>25 minutos · Modo focado</p>
+                            </div>
+                        </div>
+
+                        <div class="circulo-progresso">
+                            <div>
+                                <i class="fa-solid fa-lock"></i>
+                                <strong>19:58</strong>
+                            </div>
+                        </div>
+
+                        <div class="grelha-previsualizacao">
+                            <div>
+                                <strong>12</strong>
+                                <span>Sessões</span>
+                            </div>
+
+                            <div>
+                                <strong>850</strong>
+                                <span>XP</span>
+                            </div>
+
+                            <div>
+                                <strong>7</strong>
+                                <span>Tarefas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diapositivo-previsualizacao" id="diapositivo-1">
+                        <div class="cartao-previsualizacao ativo">
+                            <i class="fa-solid fa-list-check"></i>
+                            <div>
+                                <h3>Organização Inteligente de Tarefas</h3>
+                                <p>Organiza o teu estudo por dias e sessões</p>
+                            </div>
+                        </div>
+
+                        <div class="lista-tarefas-previsualizacao">
+                            <div class="item-tarefa-previsualizacao">
+                                <div>
+                                    <strong>Estudar Matemática</strong>
+                                    <span>25 min · 0/2 sessões</span>
+                                </div>
+                                <b>Hoje</b>
+                            </div>
+
+                            <div class="item-tarefa-previsualizacao">
+                                <div>
+                                    <strong>Projeto de POO</strong>
+                                    <span>30 min · 1/3 sessões</span>
+                                </div>
+                                <b>Amanhã</b>
+                            </div>
+
+                            <div class="item-tarefa-previsualizacao concluida">
+                                <div>
+                                    <strong>Resumo de Redes</strong>
+                                    <span>Concluída</span>
+                                </div>
+                                <b>✓</b>
+                            </div>
+                        </div>
+
+                        <div class="grelha-previsualizacao">
+                            <div>
+                                <strong>7</strong>
+                                <span>Ativas</span>
+                            </div>
+
+                            <div>
+                                <strong>3</strong>
+                                <span>Hoje</span>
+                            </div>
+
+                            <div>
+                                <strong>2</strong>
+                                <span>Concluídas</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="diapositivo-previsualizacao" id="diapositivo-2">
+                        <div class="cartao-previsualizacao ativo">
+                            <i class="fa-solid fa-trophy"></i>
+                            <div>
+                                <h3>Conquistas e XP</h3>
+                                <p>Transforma o foco em progresso real</p>
+                            </div>
+                        </div>
+
+                        <div class="previsualizacao-conquista">
+                            <div class="icone-conquista">
+                                <i class="fa-solid fa-crown"></i>
+                            </div>
+
+                            <h3>Nível 5</h3>
+                            <p>Continua a completar sessões para desbloquear novas conquistas.</p>
+
+                            <div class="barra-xp">
+                                <div></div>
+                            </div>
+
+                            <span>850 / 1000 XP</span>
+                        </div>
+
+                        <div class="grelha-previsualizacao">
+                            <div>
+                                <strong>15</strong>
+                                <span>Conquistas</span>
+                            </div>
+
+                            <div>
+                                <strong>850</strong>
+                                <span>XP</span>
+                            </div>
+
+                            <div>
+                                <strong>5</strong>
+                                <span>Nível</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </header>
 
-    <section class="focus-section">
+    <main>
 
-        <h2>Melhora o teu foco</h2>
-
-        <p class="focus-text">
-            Foca-te no que importa, elimina as distrações e evolui todos os dias.
-        </p>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">🎯</div>
-                <h3>Foco total</h3>
-                <p>Bloqueia as distrações e entra no modo produtivo.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">⏱</div>
-                <h3>Sessões inteligentes</h3>
-                <p>Define o tempo da sessão e mantém a consistência.</p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🏆</div>
-                <h3>Recompensas</h3>
-                <p>Ganha pontos XP e acompanha o teu progresso.</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="about-section">
-
-        <h2>O que é o Locked In?</h2>
-
-        <p class="about-text">
-            Locked In é uma aplicação que ajuda os utilizadores a entrarem em modo de foco
-            para estudar ou trabalhar, reduzindo distrações e aumentando a concentração.
-        </p>
-
-        <div class="about-cards">
-
-            <div class="about-card">
-                <h3>Sistema de foco inteligente</h3>
+        <section class="secao-funcionalidades" id="funcionalidades">
+            <div class="cabecalho-secao">
+                <span>Funcionalidades</span>
+                <h2>Tudo o que precisas para estudar melhor</h2>
                 <p>
-                    Ciclos curtos ajudam-te a entrar em modo Locked In e a manter a concentração.
+                    O LockedIn junta foco, organização e motivação numa experiência simples e moderna.
                 </p>
             </div>
 
-            <div class="about-card">
-                <h3>Estatísticas claras</h3>
+            <div class="grelha-funcionalidades">
+                <article class="cartao-funcionalidade">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <h3>Sessões de foco</h3>
+                    <p>Define tempos de concentração e mantém-te longe das distrações.</p>
+                </article>
+
+                <article class="cartao-funcionalidade">
+                    <i class="fa-solid fa-list-check"></i>
+                    <h3>Tarefas organizadas</h3>
+                    <p>Planeia o teu estudo com tarefas associadas a sessões de foco.</p>
+                </article>
+
+                <article class="cartao-funcionalidade">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3>Conquistas</h3>
+                    <p>Desbloqueia conquistas e transforma produtividade em motivação.</p>
+                </article>
+
+                <article class="cartao-funcionalidade">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <h3>Estatísticas</h3>
+                    <p>Acompanha sessões, minutos de estudo, XP e evolução diária.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="secao-sobre" id="sobre">
+            <div class="conteudo-sobre">
+                <div>
+                    <span class="etiqueta">Sobre o LockedIn</span>
+                    <h2>Uma aplicação feita para quem quer render mais.</h2>
+                </div>
+
                 <p>
-                    Vê quanto tempo focaste, quantas sessões concluíste e o teu nível atual.
+                    O LockedIn ajuda estudantes e trabalhadores a organizar tarefas,
+                    criar rotinas de estudo e manter consistência através de sessões
+                    de foco, progresso visual e recompensas.
                 </p>
             </div>
 
-            <div class="about-card">
-                <h3>Recompensas que motivam</h3>
-                <p>
-                    Ganha XP, desbloqueia conquistas e acompanha a tua evolução diária.
-                </p>
+            <div class="passos">
+                <div class="passo">
+                    <span>01</span>
+                    <h3>Cria uma tarefa</h3>
+                    <p>Define o que tens para fazer e quantas sessões precisas.</p>
+                </div>
+
+                <div class="passo">
+                    <span>02</span>
+                    <h3>Inicia uma sessão</h3>
+                    <p>Entra no modo foco e trabalha sem sair da sessão.</p>
+                </div>
+
+                <div class="passo">
+                    <span>03</span>
+                    <h3>Ganha progresso</h3>
+                    <p>Recebe XP, melhora estatísticas e desbloqueia conquistas.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="about-card">
-                <h3>Menos distrações</h3>
-                <p>
-                    Interface limpa e direta para te manter no caminho certo.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="cta-section">
-
-        <h2>
-            O teu estudo,<br>
-            <span>sem distrações</span>
-        </h2>
-
-        <div class="line"></div>
-
-        <p>
-            Sessões de foco inteligentes, gamificação que motiva e tarefas simples.
-            Tudo o que precisas para estudar a sério.
-        </p>
-
-        <div class="buttons">
-            <a href="#" class="btn-primary">Começar</a>
-            <a href="#" class="btn-secondary">Detalhes</a>
-        </div>
-
-    </section>
-
-    <footer>
-
-        <div class="footer-column">
-            <h3>Links Rápidos</h3>
-
-            <a href="principal.html">Início</a>
-            <a href="tarefas.html">Tarefas</a>
-            <a href="foco.html">Sessões de foco</a>
-            <a href="definicoes.html">Definições</a>
-        </div>
-
-        <div class="footer-column">
-            <h3>Locked In</h3>
+        <section class="secao-chamada" id="comecar">
+            <h2>Pronto para ficar LockedIn?</h2>
 
             <p>
-                A aplicação que te ajuda a entrar em modo de foco total
-                e alcançar os teus objetivos de estudo e trabalho.
+                Começa agora a organizar o teu estudo e transforma foco em progresso real.
             </p>
+
+            <div class="acoes-chamada">
+                <a href="/html/register.html" class="botao-primario">Criar conta</a>
+                <a href="/html/login.html" class="botao-secundario">Já tenho conta</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div>
+            <h3>Locked<span>In</span></h3>
+            <p>A tua aplicação de foco, tarefas e produtividade.</p>
         </div>
 
-        <div class="footer-column">
-            <h3>Suporte</h3>
-
-            <a href="#">FAQ</a>
-            <a href="#">Contacto</a>
-            <a href="#">Privacidade</a>
-            <a href="#">Termos de Utilização</a>
+        <div>
+            <h4>Navegação</h4>
+            <a href="#inicio">Início</a>
+            <a href="#funcionalidades">Funcionalidades</a>
+            <a href="#sobre">Sobre</a>
         </div>
 
+        <div>
+            <h4>Conta</h4>
+            <a href="/html/login.html">Login</a>
+            <a href="/html/register.html">Registar</a>
+        </div>
     </footer>
 
-</body>
+    <script src="/js/index.js"></script>
 
+</body>
 </html>
