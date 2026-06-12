@@ -1,11 +1,12 @@
 import { renderNavbar } from "./navbarView.js";
 import Sessao from "../models/sessaoModel.js";
+import { chaveDia, hojeChave, diaPorExtenso } from "../utils/datas.js";
 
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
 if (!sessao || !token) {
-    window.location.href = "/html/login.html";
+    window.location.href = "login.html";
 }
 
 renderNavbar("Sessões");
@@ -28,7 +29,7 @@ async function carregarPagina() {
     });
 
     if (!response.ok) {
-        window.location.href = "/html/login.html";
+        window.location.href = "login.html";
         return;
     }
 
@@ -122,17 +123,57 @@ function abrirModalTarefas() {
     if (tarefasAtivas.length === 0) {
         lista.innerHTML = `<p class="sem-tarefas">Não tens tarefas ativas.</p>`;
     } else {
-        lista.innerHTML = tarefasAtivas.map(tarefa => {
-            const duracao = tarefa.duracaoSessao || tarefa.duracao || 25;
-            const concluidas = tarefa.sessoesConcluidas || 0;
-            const total = tarefa.numeroSessoes || tarefa.numSessoes || 1;
+        // Agrupar as tarefas ativas pelo dia agendado, em vez de uma lista plana.
+        // Hoje aparece primeiro (é o mais relevante para quem vai focar agora) e os
+        // restantes dias por ordem cronológica. Nada é escondido, só organizado -
+        // o mesmo princípio do calendário da página de tarefas.
+        const hoje = hojeChave();
+        const agora = new Date();
+        const amanha = chaveDia(new Date(agora.getFullYear(), agora.getMonth(), agora.getDate() + 1));
+
+        const porDia = {};
+        for (const tarefa of tarefasAtivas) {
+            const dia = tarefa.dia || "sem-data";
+            if (!porDia[dia]) porDia[dia] = [];
+            porDia[dia].push(tarefa);
+        }
+
+        // Ordena os dias cronologicamente ("sem-data" fica no fim por ordenação de
+        // texto) e puxa o dia de hoje para o topo da lista.
+        const chaves = Object.keys(porDia).sort();
+        const i = chaves.indexOf(hoje);
+        if (i > 0) {
+            chaves.splice(i, 1);
+            chaves.unshift(hoje);
+        }
+
+        const rotuloDia = (chave) => {
+            if (chave === "sem-data") return "Sem data definida";
+            if (chave === hoje) return "Hoje";
+            if (chave === amanha) return "Amanhã";
+            return diaPorExtenso(chave);
+        };
+
+        lista.innerHTML = chaves.map(chave => {
+            const itens = porDia[chave].map(tarefa => {
+                const duracao = tarefa.duracaoSessao || tarefa.duracao || 25;
+                const concluidas = tarefa.sessoesConcluidas || 0;
+                const total = tarefa.numeroSessoes || tarefa.numSessoes || 1;
+
+                return `
+                    <button class="tarefa-opcao" data-id="${tarefa.id}">
+                        <strong>${tarefa.nome}</strong>
+                        <span>${duracao} min</span>
+                        <small>${concluidas}/${total} sessões</small>
+                    </button>
+                `;
+            }).join("");
 
             return `
-                <button class="tarefa-opcao" data-id="${tarefa.id}">
-                    <strong>${tarefa.nome}</strong>
-                    <span>${duracao} min</span>
-                    <small>${concluidas}/${total} sessões</small>
-                </button>
+                <div class="grupo-dia">
+                    <p class="grupo-dia-titulo">${rotuloDia(chave)}</p>
+                    ${itens}
+                </div>
             `;
         }).join("");
     }
