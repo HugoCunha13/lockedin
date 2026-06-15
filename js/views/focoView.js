@@ -1,6 +1,7 @@
 import { renderNavbar } from "./navbarView.js";
 import Sessao from "../models/sessaoModel.js";
 import { chaveDia, hojeChave, diaPorExtenso } from "../utils/datas.js";
+import { verificarConquistas } from "../utils/conquistas.js";
 
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
@@ -461,6 +462,7 @@ function mostrarModalSessaoConcluida() {
 
 async function guardarSessao() {
     try {
+        utilizador.conquistas = verificarConquistas(utilizador);
         await fetch(`http://localhost:3000/users/${utilizador.id}`, {
             method: "PATCH",
             headers: {
@@ -471,7 +473,8 @@ async function guardarSessao() {
                 tarefas: utilizador.tarefas,
                 sessoes: utilizador.sessoes,
                 estatisticas: utilizador.estatisticas,
-                xp: utilizador.xp
+                xp: utilizador.xp,
+                conquistas: utilizador.conquistas
             })
         });
 
