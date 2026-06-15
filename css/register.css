@@ -26,7 +26,7 @@ body {
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
   top: -100px;
   right: -100px;
   border-radius: 50%;
@@ -38,7 +38,7 @@ body {
   position: absolute;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
   bottom: -80px;
   left: -80px;
   border-radius: 50%;
@@ -46,8 +46,17 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.15); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
 }
 
 .card {
@@ -115,7 +124,7 @@ h1 {
 .input-group input:focus {
   border-color: #3a9ef5;
   box-shadow: 0 0 0 3px rgba(58, 158, 245, 0.18);
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
 .icon {
@@ -226,4 +235,102 @@ h1 {
 
 .login-link a:hover {
   color: #1a6fd4;
+}
+
+@media (max-width: 1024px) {
+
+  body {
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .card {
+    max-width: 360px;
+    /* menor e mais proporcional */
+    padding: 28px 24px;
+    /* menos espaçamento interno */
+    border-radius: 18px;
+  }
+
+  .logo-circle {
+    width: 58px;
+    height: 58px;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+    /* reduzido */
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 18px;
+  }
+
+  .input-group input {
+    padding: 12px 40px;
+    font-size: 0.9rem;
+  }
+
+  .icon {
+    font-size: 0.9rem;
+    left: 12px;
+  }
+
+  .terms {
+    font-size: 0.8rem;
+    margin-bottom: 14px;
+  }
+
+  .btn-criar {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .divider {
+    margin: 16px 0;
+    font-size: 0.8rem;
+  }
+
+  .btn-social {
+    padding: 11px;
+    font-size: 0.9rem;
+  }
+
+  .login-link {
+    font-size: 0.82rem;
+    margin-top: 12px;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .card {
+    max-width: 320px;
+    padding: 24px 18px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.78rem;
+  }
+
+  .input-group input {
+    padding: 11px 38px;
+    font-size: 0.88rem;
+  }
+
+  .btn-criar {
+    font-size: 0.9rem;
+    padding: 11px;
+  }
+
+  .btn-social {
+    font-size: 0.88rem;
+  }
 }

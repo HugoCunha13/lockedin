@@ -1,64 +1,68 @@
 .page {
-    padding: 40px 50px;
+    padding: 22px 28px;
     margin-left: 110px;
     margin-right: 40px;
     height: 100vh;
     overflow-y: auto;
+    font-size: 0.88rem;
 }
 
 .page h1 {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     font-weight: 800;
     color: white;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
-.page > p {
+.page>p {
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 30px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
 }
 
 .cards-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 14px;
+    align-items: start;
 }
 
 .right-col {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 14px;
 }
 
 .card {
     background: white;
-    border-radius: 16px;
-    padding: 28px;
+    border-radius: 14px;
+    padding: 14px 16px;
 }
 
 .card h3 {
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-size: 0.95rem;
 }
 
 .card-subtitle {
-    font-size: 0.83rem;
+    font-size: 0.78rem;
     color: #aab0c0;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .profile-user {
     display: flex;
     align-items: center;
-    gap: 14px;
-    padding: 16px 0;
+    gap: 10px;
+    padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
 }
 
 .profile-avatar {
-    width: 56px;
-    height: 56px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     background: linear-gradient(135deg, #3a9ef5, #1a6fd4);
     display: flex;
@@ -66,26 +70,27 @@
     justify-content: center;
     color: white;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 .profile-name {
     font-weight: 700;
+    font-size: 0.9rem;
 }
 
 .profile-level {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     color: #aab0c0;
 }
 
 .profile-fields {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .field {
     display: flex;
     align-items: center;
-    padding: 13px 0;
+    padding: 7px 0;
     border-bottom: 1px solid #f5f5f5;
     gap: 10px;
 }
@@ -96,42 +101,44 @@
 
 .field-label {
     font-weight: 600;
-    width: 110px;
+    width: 100px;
+    font-size: 0.83rem;
 }
 
 .field-value {
     flex: 1;
     color: #aab0c0;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .btn-logout {
     width: 100%;
-    padding: 13px;
+    padding: 9px;
     background: #fef0f0;
     color: #e53e3e;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.83rem;
     cursor: pointer;
 }
 
 .users-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .users-table th {
     text-align: left;
     color: #aab0c0;
     font-weight: 600;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid #f0f0f0;
 }
 
 .users-table td {
-    padding: 12px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #f5f5f5;
     vertical-align: middle;
 }
@@ -142,15 +149,15 @@
 
 .user-actions {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     justify-content: flex-end;
 }
 
 .btn-role {
-    padding: 5px 12px;
+    padding: 4px 10px;
     border: none;
-    border-radius: 8px;
-    font-size: 0.78rem;
+    border-radius: 7px;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     background: #fef08a;
@@ -158,10 +165,10 @@
 }
 
 .btn-excluir {
-    padding: 5px 12px;
+    padding: 4px 10px;
     border: none;
-    border-radius: 8px;
-    font-size: 0.78rem;
+    border-radius: 7px;
+    font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
     background: #fee2e2;
@@ -171,20 +178,117 @@
 .missao-input {
     flex: 1;
     border: 1.5px solid #e8edf5;
-    border-radius: 8px;
-    padding: 8px 12px;
+    border-radius: 7px;
+    padding: 7px 10px;
     outline: none;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .btn-send {
     width: 100%;
-    padding: 12px;
+    padding: 9px;
     background: #3a9ef5;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.83rem;
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 10px;
+}
+
+.page {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.page::-webkit-scrollbar {
+    display: none;
+}
+
+/* TABLET (até 1024px) */
+@media (max-width: 1024px) {
+    .page {
+        padding: 24px;
+        margin-left: 90px;
+        margin-right: 0;
+        width: calc(100vw - 90px);
+        box-sizing: border-box;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* MOBILE (até 768px) */
+@media (max-width: 768px) {
+    .page {
+        padding: 16px;
+        margin-left: 65px;
+        margin-right: 0;
+        width: calc(100vw - 65px);
+        box-sizing: border-box;
+    }
+
+    .page h1 {
+        font-size: 1.3rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 12px 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .field-label {
+        width: 90px;
+        font-size: 0.82rem;
+    }
+
+    .profile-avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+}
+
+/* MOBILE PEQUENO (até 480px) */
+@media (max-width: 480px) {
+    .page {
+        padding: 12px;
+        margin-left: 60px;
+        margin-right: 0;
+        width: calc(100vw - 60px);
+        box-sizing: border-box;
+    }
+
+    .page h1 {
+        font-size: 1.1rem;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .field {
+        gap: 6px;
+    }
+
+    .field-label {
+        width: 80px;
+        font-size: 0.8rem;
+    }
+
+    .btn-logout,
+    .btn-send {
+        padding: 9px;
+        font-size: 0.85rem;
+    }
 }

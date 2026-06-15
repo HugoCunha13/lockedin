@@ -2,6 +2,11 @@
     padding: 40px 50px;
     margin-left: 110px;
     margin-right: 40px;
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 .page h1 {
@@ -11,7 +16,7 @@
     margin-bottom: 6px;
 }
 
-.page > p {
+.page>p {
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 30px;
 }
@@ -20,6 +25,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
+    max-width: 100%;
+    align-items: start;
 }
 
 .right-col {
@@ -32,6 +39,8 @@
     background: white;
     border-radius: 16px;
     padding: 28px;
+    min-width: 0;
+    box-sizing: border-box;
 }
 
 .card h3 {
@@ -65,6 +74,7 @@
     color: white;
     font-weight: 700;
     font-size: 1.3rem;
+    flex-shrink: 0;
 }
 
 .profile-name {
@@ -86,6 +96,7 @@
     padding: 13px 0;
     border-bottom: 1px solid #f5f5f5;
     gap: 10px;
+    min-width: 0;
 }
 
 .field:last-child {
@@ -95,12 +106,17 @@
 .field-label {
     font-weight: 600;
     width: 110px;
+    flex-shrink: 0;
 }
 
 .field-value {
     flex: 1;
     color: #aab0c0;
     font-size: 0.85rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
 }
 
 .btn-logout {
@@ -124,9 +140,13 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
-.notif-text { flex: 1; }
+.notif-text {
+    flex: 1;
+    min-width: 0;
+}
 
 .notif-title {
     font-weight: 600;
@@ -145,7 +165,11 @@
     flex-shrink: 0;
 }
 
-.toggle input { opacity: 0; width: 0; height: 0; }
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
 .slider {
     position: absolute;
@@ -168,9 +192,13 @@
     transition: transform 0.2s;
 }
 
-.toggle input:checked + .slider { background: #3a9ef5; }
+.toggle input:checked+.slider {
+    background: #3a9ef5;
+}
 
-.toggle input:checked + .slider::before { transform: translateX(20px); }
+.toggle input:checked+.slider::before {
+    transform: translateX(20px);
+}
 
 .idea-textarea {
     width: 100%;
@@ -180,6 +208,7 @@
     border-radius: 10px;
     resize: none;
     outline: none;
+    box-sizing: border-box;
 }
 
 .idea-counter {
@@ -198,4 +227,103 @@
     border-radius: 10px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.page {
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.page::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari */
+}
+
+/* TABLET (até 1024px) */
+@media (max-width: 1024px) {
+    .page {
+        padding: 30px;
+        margin-left: 90px;
+        margin-right: 0;
+        width: calc(100vw - 90px);
+        box-sizing: border-box;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}
+
+/* MOBILE (até 768px) */
+@media (max-width: 768px) {
+    .page {
+        padding: 20px;
+        margin-left: 65px;
+        margin-right: 0;
+        width: calc(100vw - 65px);
+        box-sizing: border-box;
+    }
+
+    .page h1 {
+        font-size: 1.5rem;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .card {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .field-label {
+        width: 100px;
+        font-size: 0.88rem;
+    }
+
+    .profile-avatar {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+    }
+}
+
+/* MOBILE PEQUENO (até 480px) */
+@media (max-width: 480px) {
+    .page {
+        padding: 15px;
+        margin-left: 60px;
+        margin-right: 0;
+        width: calc(100vw - 60px);
+        box-sizing: border-box;
+    }
+
+    .page h1 {
+        font-size: 1.2rem;
+    }
+
+    .card {
+        padding: 14px;
+    }
+
+    .field {
+        gap: 6px;
+    }
+
+    .field-label {
+        width: 85px;
+        font-size: 0.82rem;
+    }
+
+    .btn-logout,
+    .btn-send {
+        padding: 11px;
+        font-size: 0.9rem;
+    }
 }

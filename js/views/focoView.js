@@ -74,7 +74,6 @@ function renderCriarSessao() {
             </div>
 
             <button class="notificacoes-btn">
-                <span>🔕</span>
                 <div>
                     <strong>Remove as notificações</strong>
                     <small>Foca-te sem distrações</small>
@@ -207,7 +206,7 @@ function iniciarSessao(modo, duracao, tarefa = null) {
         tarefa ? tarefa.id : null,
         tarefa ? tarefa.nome : null
     );
-    
+
     tempoTotal = duracao * 60;
 
     tempoRestante = tempoTotal;
@@ -291,11 +290,10 @@ function renderSessaoEmCurso(modo, tarefa) {
                 <div class="info-card">
                     <h3>${modo === "focado" ? "Tarefa desta sessão" : "Modo livre"}</h3>
 
-                    ${
-                        modo === "focado"
-                        ? `<p><strong>Tarefa a concluir:</strong></p><p>${tarefa.nome}</p>`
-                        : `<p>Estás a focar-te sem tarefa definida.</p>`
-                    }
+                    ${modo === "focado"
+            ? `<p><strong>Tarefa a concluir:</strong></p><p>${tarefa.nome}</p>`
+            : `<p>Estás a focar-te sem tarefa definida.</p>`
+        }
 
                     <p><strong>Sessão em curso</strong></p>
 
