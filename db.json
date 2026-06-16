@@ -24,7 +24,52 @@
       "nome": "Cesar",
       "role": "user",
       "xp": 900,
-      "tarefas": [],
+      "tarefas": [
+        {
+          "id": "5555735a-0bea-4b83-b098-0bcadbb36435",
+          "nome": "teste",
+          "dia": "2026-06-16",
+          "numeroSessoes": 1,
+          "duracaoSessao": 10,
+          "sessoesConcluidas": 0,
+          "concluida": true,
+          "xpRecompensa": 50,
+          "notas": ""
+        },
+        {
+          "id": "943fc557-8148-4048-a150-c76de7c5d018",
+          "nome": "teste",
+          "dia": "2026-06-16",
+          "numeroSessoes": 1,
+          "duracaoSessao": 10,
+          "sessoesConcluidas": 0,
+          "concluida": false,
+          "xpRecompensa": 50,
+          "notas": ""
+        },
+        {
+          "id": "29edf37c-7b41-4e8d-a0cc-10d936232c8c",
+          "nome": "teste",
+          "dia": "2026-06-10",
+          "numeroSessoes": 1,
+          "duracaoSessao": 10,
+          "sessoesConcluidas": 0,
+          "concluida": false,
+          "xpRecompensa": 50,
+          "notas": ""
+        },
+        {
+          "id": "2e2c2939-e1fe-4577-a37e-16f5b658a22d",
+          "nome": "PROJETO 1",
+          "dia": "2026-06-16",
+          "numeroSessoes": 2,
+          "duracaoSessao": 25,
+          "sessoesConcluidas": 0,
+          "concluida": false,
+          "xpRecompensa": 50,
+          "notas": ""
+        }
+      ],
       "sessoes": [
         {
           "id": "00542858-99fc-4b84-9634-fd036cb956fd",

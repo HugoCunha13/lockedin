@@ -20,14 +20,16 @@ async function carregarPrincipal() {
         })
     ]);
 
-    if (!resUtilizador.ok) {
+    if (!resUtilizador.ok || !resMissoes.ok) {
+        localStorage.removeItem("sessaoAtiva");
+        localStorage.removeItem("token");
         window.location.href = "/html/login.html";
         return;
     }
 
     const utilizador = await resUtilizador.json();
-    const missoes = await resMissoes.json();
-
+    const dadosMissoes = await resMissoes.json();
+    const missoes = Array.isArray(dadosMissoes) ? dadosMissoes : [];
     const hoje = calcularMinutosHoje(utilizador.sessoes);
     const semana = calcularMinutosSemana(utilizador.sessoes);
     const sequencia = calcularSequencia(utilizador.sessoes);

@@ -35,7 +35,21 @@ async function carregarPagina() {
     }
 
     utilizador = await response.json();
-    renderCriarSessao();
+
+    const tarefaGuardada = JSON.parse(localStorage.getItem("tarefaParaFoco"));
+
+    if (tarefaGuardada) {
+        const tarefa = utilizador.tarefas.find(t => String(t.id) === String(tarefaGuardada.id));
+
+        localStorage.removeItem("tarefaParaFoco");
+
+        if (tarefa) {
+            iniciarSessao("focado", Number(tarefa.duracaoSessao || 25), tarefa);
+            return;
+        }
+    }
+
+renderCriarSessao();
 }
 
 function renderCriarSessao() {
