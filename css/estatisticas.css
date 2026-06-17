@@ -34,10 +34,6 @@
     grid-template-columns: 1.4fr 1fr;
 }
 
-.row-3 {
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
 .card {
     background: white;
     border-radius: 16px;
@@ -62,21 +58,6 @@
     justify-content: space-between;
     min-width: 0;
     box-sizing: border-box;
-}
-
-.card-concluidas {
-    background: white;
-    border-radius: 16px;
-    padding: 16px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-width: 0;
-    box-sizing: border-box;
-}
-
-.card-concluidas h3 {
-    margin-bottom: 25px;
 }
 
 .nivel-container {
@@ -123,24 +104,17 @@
     color: #aab0c0;
 }
 
-.sessoes-count {
-    font-size: 2rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 .consistencia-dots {
     display: flex;
     gap: 8px;
     margin-bottom: 10px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .dot {
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     flex-shrink: 0;
 }
@@ -270,9 +244,6 @@
         grid-template-columns: 1fr;
     }
 
-    .row-3 {
-        grid-template-columns: 1fr;
-    }
 
     .objetivo-atual {
         font-size: 2rem;

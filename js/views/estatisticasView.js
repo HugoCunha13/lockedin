@@ -33,7 +33,6 @@ async function carregarEstatisticas() {
     const minutosSemana = calcularMinutosSemana(sessoes);
     const consistencia = calcularConsistencia(sessoes);
     const dadosSemana = calcularDadosSemana(sessoes);
-    const dadosMeses = calcularDadosMeses(sessoes);
     const analise = calcularAnalise(sessoes, utilizador);
     const objetivoMensal = calcularObjetivoMensal(sessoes);
 
@@ -65,11 +64,20 @@ async function carregarEstatisticas() {
                 </div>
             </div>
 
-            <div class="row row-3">
-                <div class="card-concluidas">
-                    <h3>Sessões concluídas:</h3>
-                    <div class="sessoes-count">
-                        ${totalSessoes} sessões 🔥
+            <div class="row row-2">
+                <div class="card">
+                    <h3>Tempo focado</h3>
+                    <div class="tempo-item">
+                        <p class="label">Sessões concluídas</p>
+                        <p class="valor">${totalSessoes} 🔥</p>
+                    </div>                    
+                    <div class="tempo-item">
+                        <p class="label">Hoje</p>
+                        <p class="valor">${formatarMinutos(minutosHoje)}</p>
+                    </div>
+                    <div class="tempo-item">
+                        <p class="label">Semana</p>
+                        <p class="valor">${formatarMinutos(minutosSemana)}</p>
                     </div>
                 </div>
                 <div class="card-centrado">
@@ -80,17 +88,6 @@ async function carregarEstatisticas() {
                         `).join("")}
                     </div>
                     <p class="consistencia-label">Últimos 7 dias</p>
-                </div>
-                <div class="card">
-                    <h3>Tempo focado</h3>
-                    <div class="tempo-item">
-                        <p class="label">Hoje</p>
-                        <p class="valor">${formatarMinutos(minutosHoje)}</p>
-                    </div>
-                    <div class="tempo-item">
-                        <p class="label">Semana</p>
-                        <p class="valor">${formatarMinutos(minutosSemana)}</p>
-                    </div>
                 </div>
             </div>
 
@@ -117,12 +114,6 @@ async function carregarEstatisticas() {
                     <p class="objetivo-info">${objetivoMensal.percent}% do objetivo</p>
                 </div>
             </div>
-
-            <div class="card">
-                <h3>Evolução</h3>
-                <canvas id="graficoEvolucao" height="80"></canvas>
-            </div>
-
         </div>
     `;
 
@@ -143,28 +134,6 @@ async function carregarEstatisticas() {
                     ticks: { callback: v => v + " min" },
                     grid: { color: "#f0f0f0" }
                 },
-                x: { grid: { display: false } }
-            }
-        }
-    });
-
-    new Chart(document.getElementById("graficoEvolucao"), {
-        type: "line",
-        data: {
-            labels: dadosMeses.labels,
-            datasets: [{
-                data: dadosMeses.dados,
-                borderColor: "#2b78ff",
-                backgroundColor: "rgba(43, 120, 255, 0.1)",
-                tension: 0.4,
-                fill: true,
-                pointRadius: 4
-            }]
-        },
-        options: {
-            plugins: { legend: { display: false } },
-            scales: {
-                y: { grid: { color: "#f0f0f0" } },
                 x: { grid: { display: false } }
             }
         }
@@ -217,26 +186,6 @@ function calcularDadosSemana(sessoes) {
         });
 
     return dias;
-}
-
-function calcularDadosMeses(sessoes) {
-    const agora = new Date();
-    const labels = [];
-    const dados = [];
-
-    for (let i = 3; i >= 0; i--) {
-        const mes = new Date(agora.getFullYear(), agora.getMonth() - i, 1);
-        labels.push(`mês ${4 - i}`);
-        const minutosMes = sessoes
-            .filter(s => {
-                const d = new Date(s.dataInicio);
-                return d.getMonth() === mes.getMonth() && d.getFullYear() === mes.getFullYear();
-            })
-            .reduce((total, s) => total + (s.duracao || 0), 0);
-        dados.push(minutosMes);
-    }
-
-    return { labels, dados };
 }
 
 function calcularAnalise(sessoes, utilizador) {
