@@ -114,6 +114,18 @@ async function carregarAdmin() {
                         <input type="text" id="missaoDescricao" class="missao-input" placeholder="Descrição" />
                     </div>
                     <div class="field">
+                        <span class="field-label">Tipo</span>
+                        <select id="missaoTipo" class="missao-input">
+                            <option value="sessao">Completar sessões de foco</option>
+                            <option value="tarefa">Completar tarefas</option>
+                            <option value="tempo">Estudar X minutos</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <span class="field-label">Meta</span>
+                        <input type="number" id="missaoMeta" class="missao-input" placeholder="Ex: 1 sessão, 30 minutos" />
+                    </div>
+                    <div class="field">
                         <span class="field-label">Recompensa</span>
                         <input type="number" id="missaoXP" class="missao-input" placeholder="XP" />
                     </div>
@@ -157,11 +169,13 @@ async function carregarAdmin() {
     document.getElementById("btnCriarMissao").addEventListener("click", async function () {
         const titulo = document.getElementById("missaoTitulo").value.trim();
         const descricao = document.getElementById("missaoDescricao").value.trim();
+        const tipo = document.getElementById("missaoTipo").value;
+        const meta = parseInt(document.getElementById("missaoMeta").value);
         const xp = parseInt(document.getElementById("missaoXP").value);
 
-        if (!titulo || !descricao || !xp) return;
+        if (!titulo || !descricao || !meta || !xp) return;
 
-        const novaMissao = new Missao(titulo, descricao, xp);
+        const novaMissao = new Missao(titulo, descricao, tipo, meta, xp);
 
         await fetch("http://localhost:3000/missoes", {
             method: "POST",
@@ -171,6 +185,7 @@ async function carregarAdmin() {
 
         document.getElementById("missaoTitulo").value = "";
         document.getElementById("missaoDescricao").value = "";
+        document.getElementById("missaoMeta").value = "";
         document.getElementById("missaoXP").value = "";
 
         this.textContent = "Missão criada!";

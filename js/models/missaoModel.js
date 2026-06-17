@@ -1,11 +1,12 @@
 class Missao {
-    constructor(titulo, descricao, pontos) {
+    constructor(titulo, descricao, tipo, meta, xpRecompensa) {
         this.id = crypto.randomUUID();
         this.titulo = titulo;
         this.descricao = descricao;
-        this.pontos = pontos;
-        this.concluida = false;
-        this.xpRecompensa = pontos;
+        this.tipo = tipo;
+        this.meta = meta;
+        this.xpRecompensa = xpRecompensa;
+        this.criadaEm = new Date().toISOString();
     }
 }
 

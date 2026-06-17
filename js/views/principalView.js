@@ -1,4 +1,5 @@
 import { renderNavbar } from "./navbarView.js";
+import { calcularProgressoMissao } from "../utils/missoes.js";
 
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
@@ -46,21 +47,28 @@ async function carregarPrincipal() {
 
             <div class="card">
                 <h3>Próxima missão</h3>
-                ${missoes.length === 0
-                    ? `<p class="sem-missoes">Sem missões disponíveis</p>`
-                    : missoes.map(m => `
-                        <div class="missao-item">
-                            <div class="missao-top">
-                                <p class="missao-titulo">${m.titulo}</p>
-                                <span class="missao-progresso">✓ ${m.concluida ? "1/1" : "0/1"}</span>
+                ${(() => {
+                    const missoesPendentes = missoes.filter(m => !(utilizador.missoesConcluidas || []).includes(m.id));
+                    return missoesPendentes.length === 0
+                        ? `<p class="sem-missoes">Sem missões disponíveis</p>`
+                        : missoesPendentes.map(m => {
+                            const { atual, meta } = calcularProgressoMissao(utilizador, m);
+                            const atualLimitado = Math.min(atual, meta);
+                            const percentagem = Math.min(100, Math.round((atual / meta) * 100));
+                            return `
+                            <div class="missao-item">
+                                <div class="missao-top">
+                                    <p class="missao-titulo">${m.titulo}</p>
+                                    <span class="missao-progresso">${atualLimitado}/${meta}</span>
+                                </div>
+                                <p class="missao-xp">Ganha ${m.xpRecompensa} XP</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${percentagem}%"></div>
+                                </div>
                             </div>
-                            <p class="missao-xp">Ganha ${m.xpRecompensa} XP</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: ${m.concluida ? "100" : "0"}%"></div>
-                            </div>
-                        </div>
-                    `).join("")
-                }
+                        `;
+                        }).join("");
+                })()}
             </div>
 
             <div class="right-col">
