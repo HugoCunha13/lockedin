@@ -34,7 +34,7 @@ async function carregarPagina() { //Função que vai buscar dados ao servidor
     if (!response.ok) {
         window.location.href = "login.html";
         return;
-    }//Se o pedido falhar, manda para login.
+    }//Se o pedido falhar, manda para login
 
     utilizador = await response.json();//Converte a resposta para objeto
 
@@ -407,23 +407,27 @@ function pausarSessao() {
     btn.textContent = emPausa ? "▶" : "Ⅱ";//Muda o ícone do botão
 }
 
-function terminarSessao() {//Terminar sessão aqui significa desistir. A sessão não é guardada como concluída e não recebe XP
-    const modal = document.getElementById("modalTerminarSessao");//Mostra modal de confirmação
+function terminarSessao() {
+    const modal = document.getElementById("modalTerminarSessao");//Vai buscar o modal de confirmação
 
-    modal.classList.remove("hidden");
+    modal.classList.remove("hidden");//Mostra o modal de confirmação para terminar a sessão
 
-    document.getElementById("btnCancelarTerminar").onclick = function () {
-        modal.classList.add("hidden");//Se clicar fecha a modal
-        
-        //Se confirmar, para o temporizador e marca como terminada
+    //Adiciona event listeners aos botões do modal
+    document.getElementById("btnCancelarTerminar").onclick = function () { 
+        modal.classList.add("hidden");
+    };
+
+    //Se confirmar que quer terminar, marca a sessão como terminada, para evitar que a função de concluir sessão seja chamada depois, e mostra a interface normal de criar sessão
+    document.getElementById("btnConfirmarTerminar").onclick = function () {
+        clearInterval(intervalo);
         intervalo = null;
         sessaoTerminada = true;
 
         modal.classList.add("hidden");
 
-        //Volta à interface inicial
         document.getElementById("sidebar").classList.remove("hidden");
         document.querySelector(".foco-page").classList.remove("sessao-ativa");
+
         renderCriarSessao();
     };
 }

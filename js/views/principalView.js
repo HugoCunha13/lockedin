@@ -1,17 +1,21 @@
 import { renderNavbar } from "./navbarView.js";
 import { calcularProgressoMissao } from "../utils/missoes.js";
 
+//Vai buscar a sessão ativa e o token do localStorage
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
+//Se não houver sessão ativa ou token, redireciona para a página de login
 if (!sessao || !token) {
     window.location.href = "/html/login.html";
 }
 
-renderNavbar("Início");
+renderNavbar("Início");//Renderiza a barra de navegação com a página "Início" como ativa
 
-async function carregarPrincipal() {
 
+async function carregarPrincipal() {//Função que faz pedidos ao servidor para obter os dados do utilizador, missões e sessões, e exibe as informações na página principal
+
+    //Faz duas requisições em paralelo: uma para obter os dados do utilizador e outra para obter todas as missões disponíveis
     const [resUtilizador, resMissoes] = await Promise.all([
         fetch(`http://localhost:3000/users/${sessao.id}`, {
             headers: { "Authorization": `Bearer ${token}` }
@@ -21,6 +25,7 @@ async function carregarPrincipal() {
         })
     ]);
 
+    //Se as requisições falharem, remove a sessão ativa e o token do localStorage e redireciona para a página de login
     if (!resUtilizador.ok || !resMissoes.ok) {
         localStorage.removeItem("sessaoAtiva");
         localStorage.removeItem("token");
@@ -28,6 +33,7 @@ async function carregarPrincipal() {
         return;
     }
 
+    //Obtém os dados do utilizador, todas as missões disponíveis e calcula as estatísticas de foco do utilizador
     const utilizador = await resUtilizador.json();
     const dadosMissoes = await resMissoes.json();
     const missoes = Array.isArray(dadosMissoes) ? dadosMissoes : [];
@@ -35,7 +41,7 @@ async function carregarPrincipal() {
     const semana = calcularMinutosSemana(utilizador.sessoes);
     const sequencia = calcularSequencia(utilizador.sessoes);
 
-    const content = document.getElementById("content");
+    const content = document.getElementById("content");//Seleciona o elemento de conteúdo da página para exibir as informações do utilizador, missões e estatísticas de foco
 
     content.innerHTML = `
         <div class="page-header">
@@ -100,6 +106,7 @@ async function carregarPrincipal() {
     `;
 }
 
+//Funções auxiliares para calcular os minutos focados hoje
 function calcularMinutosHoje(sessoes) {
     if (!sessoes || sessoes.length === 0) return 0;
     const hoje = new Date().toDateString();
@@ -108,6 +115,7 @@ function calcularMinutosHoje(sessoes) {
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
+//Função auxiliar para calcular os minutos focados na semana atual
 function calcularMinutosSemana(sessoes) {
     if (!sessoes || sessoes.length === 0) return 0;
     const agora = new Date();
@@ -119,6 +127,7 @@ function calcularMinutosSemana(sessoes) {
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
+//Função auxiliar para calcular a sequência de dias focados consecutivos
 function calcularSequencia(sessoes) {
     if (!sessoes || sessoes.length === 0) return 0;
     const dias = [...new Set(sessoes.map(s => new Date(s.dataInicio).toDateString()))];
@@ -136,6 +145,7 @@ function calcularSequencia(sessoes) {
     return sequencia;
 }
 
+//Função auxiliar para formatar os minutos em horas e minutos
 function formatarMinutos(minutos) {
     if (minutos < 60) return `${minutos}min`;
     const h = Math.floor(minutos / 60);
@@ -143,4 +153,4 @@ function formatarMinutos(minutos) {
     return m > 0 ? `${h}h ${m}min` : `${h}h`;
 }
 
-carregarPrincipal();
+carregarPrincipal();//Chama a função para carregar e exibir as informações na página principal

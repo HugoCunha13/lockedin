@@ -1,16 +1,20 @@
 import { renderNavbar } from "./navbarView.js";
 
+// Obtém a sessão ativa e o token do localStorage
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
+// Se não houver sessão ativa ou token, redireciona para a página de login
 if (!sessao || !token) {
     window.location.href = "/html/login.html";
 }
 
-renderNavbar("Conquistas");
+renderNavbar("Conquistas");// Renderiza a barra de navegação com a página "Conquistas" como ativa
 
+// Função para carregar e exibir as conquistas do utilizador
 async function carregarConquistas() {
 
+    // Faz duas requisições em paralelo: uma para obter os dados do utilizador e outra para obter todas as conquistas disponíveis
     const [resUtilizador, resConquistas] = await Promise.all([
         fetch(`http://localhost:3000/users/${sessao.id}`, {
             headers: { "Authorization": `Bearer ${token}` }
@@ -20,17 +24,21 @@ async function carregarConquistas() {
         })
     ]);
 
+    // Se a requisição do utilizador falhar, redireciona para a página de login
     if (!resUtilizador.ok) {
         window.location.href = "/html/login.html";
         return;
     }
 
+    //obtem os dados do utilizador e todas as conquistas disponíveis
     const utilizador = await resUtilizador.json();
     const todasConquistas = await resConquistas.json();
 
+    // Filtra as conquistas do utilizador em duas categorias: conquistadas e não conquistadas
     const conquistadas = todasConquistas.filter(c => utilizador.conquistas.includes(c.id));
     const naoConquistadas = todasConquistas.filter(c => !utilizador.conquistas.includes(c.id));
 
+    // Seleciona o elemento de conteúdo da página para exibir as conquistas
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -80,6 +88,7 @@ async function carregarConquistas() {
         </div>
     `;
 
+    // Adiciona event listeners aos botões de aba para alternar entre as conquistas conquistadas e não conquistadas
     document.querySelectorAll(".tab").forEach(btn => {
         btn.addEventListener("click", function () {
             document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
@@ -92,4 +101,4 @@ async function carregarConquistas() {
     });
 }
 
-carregarConquistas();
+carregarConquistas();// Chama a função para carregar e exibir as conquistas do utilizador ao carregar a página

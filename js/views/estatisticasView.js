@@ -1,33 +1,41 @@
 import { renderNavbar } from "./navbarView.js";
 
+// Verifica se há uma sessão ativa e um token de autenticação no localStorage, caso contrário redireciona para a página de login
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
+// Se não houver sessão ativa ou token, redireciona para a página de login
 if (!sessao || !token) {
     window.location.href = "/html/login.html";
 }
 
-renderNavbar("Estatísticas");
+renderNavbar("Estatísticas");// Renderiza a barra de navegação com a página "Estatísticas" como ativa
 
+// Função principal para carregar e exibir as estatísticas do utilizador
 async function carregarEstatisticas() {
 
+    // Faz uma requisição para obter os dados do utilizador usando o ID da sessão ativa e o token de autenticação
     const resposta = await fetch(`http://localhost:3000/users/${sessao.id}`, {
         headers: { "Authorization": `Bearer ${token}` }
     });
 
+    // Se a resposta não for bem-sucedida, redireciona para a página de login
     if (!resposta.ok) {
         window.location.href = "/html/login.html";
         return;
     }
 
+    // Converte a resposta em JSON para obter os dados do utilizador
     const utilizador = await resposta.json();
     const sessoes = utilizador.sessoes || [];
 
+    // Calcula o nível do utilizador, XP atual, XP faltando para o próximo nível e a percentagem de progresso para o próximo nível
     const nivel = Math.floor(utilizador.xp / 200) + 1;
     const xpAtual = utilizador.xp % 200;
     const xpFalta = 200 - xpAtual;
     const xpPercent = Math.round((xpAtual / 200) * 100);
 
+    // Calcula o total de sessões, minutos focados hoje, minutos focados na semana, consistência diária, dados para o gráfico semanal, análise geral e progresso para o objetivo mensal
     const totalSessoes = utilizador.estatisticas?.totalSessoes || sessoes.length;
     const minutosHoje = calcularMinutosHoje(sessoes);
     const minutosSemana = calcularMinutosSemana(sessoes);
@@ -36,6 +44,7 @@ async function carregarEstatisticas() {
     const analise = calcularAnalise(sessoes, utilizador);
     const objetivoMensal = calcularObjetivoMensal(sessoes);
 
+    // Seleciona o elemento de conteúdo da página e insere o HTML para exibir as estatísticas do utilizador, incluindo gráficos, barras de progresso e informações detalhadas
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -117,6 +126,7 @@ async function carregarEstatisticas() {
         </div>
     `;
 
+    // Cria um gráfico de barras usando a biblioteca Chart.js para mostrar os minutos focados em cada dia da semana
     new Chart(document.getElementById("graficoSemanal"), {
         type: "bar",
         data: {
@@ -140,6 +150,7 @@ async function carregarEstatisticas() {
     });
 }
 
+// Função para calcular os minutos focados hoje, filtrando as sessões que ocorreram no dia atual e somando suas durações
 function calcularMinutosHoje(sessoes) {
     const hoje = new Date().toDateString();
     return sessoes
@@ -147,6 +158,7 @@ function calcularMinutosHoje(sessoes) {
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
+// Função para calcular os minutos focados na semana atual, filtrando as sessões que ocorreram desde o início da semana e somando suas durações
 function calcularMinutosSemana(sessoes) {
     const agora = new Date();
     const inicioSemana = new Date(agora);
@@ -157,6 +169,7 @@ function calcularMinutosSemana(sessoes) {
         .reduce((total, s) => total + (s.duracao || 0), 0);
 }
 
+// Função para calcular a consistência diária do utilizador, verificando se houve sessões em cada um dos últimos 7 dias e retornando um array de booleanos indicando a presença ou ausência de sessões
 function calcularConsistencia(sessoes) {
     const resultado = [];
     const hoje = new Date();
@@ -170,6 +183,7 @@ function calcularConsistencia(sessoes) {
     return resultado;
 }
 
+// Função para calcular os minutos focados em cada dia da semana, filtrando as sessões que ocorreram na semana atual e somando suas durações por dia
 function calcularDadosSemana(sessoes) {
     const dias = [0, 0, 0, 0, 0, 0, 0];
     const agora = new Date();
@@ -188,6 +202,7 @@ function calcularDadosSemana(sessoes) {
     return dias;
 }
 
+// Função para calcular uma análise geral do utilizador, incluindo o dia mais focado, a duração média das sessões, o XP ganho na semana e uma dica personalizada com base nos hábitos de foco do utilizador
 function calcularAnalise(sessoes, utilizador) {
     const diasNomes = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"];
     const porDia = [0, 0, 0, 0, 0, 0, 0];
@@ -218,6 +233,7 @@ function calcularAnalise(sessoes, utilizador) {
     return { diaMaisFocado, sessaoMedia, xpSemana, dica };
 }
 
+// Função para calcular o progresso do utilizador em relação a um objetivo mensal de 25 horas, filtrando as sessões que ocorreram no mês atual, somando suas durações e calculando a percentagem do objetivo alcançada
 function calcularObjetivoMensal(sessoes) {
     const agora = new Date();
     const minutosMes = sessoes
@@ -233,6 +249,7 @@ function calcularObjetivoMensal(sessoes) {
     return { atual: minutosMes, percent };
 }
 
+// Função para formatar os minutos focados em um formato legível, convertendo para horas e minutos quando apropriado
 function formatarMinutos(minutos) {
     if (minutos === 0) return "0min";
     if (minutos < 60) return `${minutos}min`;

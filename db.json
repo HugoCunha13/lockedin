@@ -23,7 +23,7 @@
       "password": "$2a$10$iys.txpYB55rSalO1Ptri.p4CmKLdyL6R7eh8argOM6T026965u1e",
       "nome": "Cesar",
       "role": "user",
-      "xp": 900,
+      "xp": 1150,
       "tarefas": [
         {
           "id": "5555735a-0bea-4b83-b098-0bcadbb36435",
@@ -64,8 +64,19 @@
           "dia": "2026-06-16",
           "numeroSessoes": 2,
           "duracaoSessao": 25,
-          "sessoesConcluidas": 0,
+          "sessoesConcluidas": 1,
           "concluida": false,
+          "xpRecompensa": 50,
+          "notas": ""
+        },
+        {
+          "id": "4ddadc93-0b6f-4696-a0e4-24f6ee4f84a2",
+          "nome": "ESt",
+          "dia": "2026-06-18",
+          "numeroSessoes": 1,
+          "duracaoSessao": 10,
+          "sessoesConcluidas": 0,
+          "concluida": true,
           "xpRecompensa": 50,
           "notas": ""
         }
@@ -250,22 +261,80 @@
           "concluida": true,
           "dataInicio": "2026-06-07T20:01:05.893Z",
           "dataFim": "2026-06-07T20:01:36.590Z"
+        },
+        {
+          "id": "f51ba33a-482c-439a-94cb-52fbca62fd0f",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-18T11:04:47.755Z",
+          "dataFim": "2026-06-18T11:04:57.768Z"
+        },
+        {
+          "id": "bfa0ab76-dc95-45fe-a30c-ef368376b87d",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-18T13:48:56.060Z",
+          "dataFim": "2026-06-18T13:49:06.073Z"
+        },
+        {
+          "id": "278e63de-c195-4853-a14d-bf86fb09272a",
+          "modo": "focado",
+          "duracao": 25,
+          "tarefaId": "2e2c2939-e1fe-4577-a37e-16f5b658a22d",
+          "nomeTarefa": "PROJETO 1",
+          "concluida": true,
+          "dataInicio": "2026-06-18T13:52:40.817Z",
+          "dataFim": "2026-06-18T13:53:05.822Z"
+        },
+        {
+          "id": "520741fd-9429-44bf-990d-f0aa4f5500e0",
+          "modo": "livre",
+          "duracao": 10,
+          "tarefaId": null,
+          "nomeTarefa": null,
+          "concluida": true,
+          "dataInicio": "2026-06-19T16:06:38.692Z",
+          "dataFim": "2026-06-19T16:06:54.700Z"
         }
       ],
-      "conquistas": [],
+      "conquistas": [
+        1,
+        2,
+        5,
+        12
+      ],
       "estatisticas": {
         "totalTarefasConcluidas": 0,
-        "totalSessoes": 18,
-        "minutosEstudo": 225,
+        "totalSessoes": 22,
+        "minutosEstudo": 280,
         "conquistasDesbloqueadas": 0,
-        "xpTotal": 900
+        "xpTotal": 1150
       },
-      "id": 2
+      "id": 2,
+      "missoesConcluidas": [
+        "900c836a-9097-479e-ad16-9d4585c33475"
+      ]
     }
   ],
   "tarefas": [],
   "sessoes": [],
-  "missoes": [],
+  "missoes": [
+    {
+      "id": "900c836a-9097-479e-ad16-9d4585c33475",
+      "titulo": "njkkc",
+      "descricao": "ddasd",
+      "tipo": "tempo",
+      "meta": 10,
+      "xpRecompensa": 50,
+      "criadaEm": "2026-06-18T13:40:41.410Z"
+    }
+  ],
   "conquistas": [
     {
       "id": 1,

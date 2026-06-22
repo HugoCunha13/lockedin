@@ -1,40 +1,46 @@
 import { renderNavbar } from "./navbarView.js";
 import Missao from "../models/missaoModel.js";
 
+// Verifica se o utilizador tem sessão ativa e é admin, caso contrário redireciona para a página apropriada
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
+// Se não houver sessão ou token, redireciona para login
 if (!sessao || !token) {
     window.location.href = "/html/login.html";
 }
 
+// Se o utilizador não for admin, redireciona para a página principal
 if (sessao.role !== "admin") {
     window.location.href = "/html/principal.html";
 }
 
-renderNavbar("Admin");
+renderNavbar("Admin");//Renderiza a navbar com o título "Admin"
 
+// Função principal para carregar os dados do admin e renderizar a página
 async function carregarAdmin() {
 
     const [resUtilizador, resUsers] = await Promise.all([
-        fetch(`http://localhost:3000/users/${sessao.id}`, {
+        fetch(`http://localhost:3000/users/${sessao.id}`, {//Vai buscar os dados do utilizador atual para mostrar o perfil
             headers: { "Authorization": `Bearer ${token}` }
         }),
-        fetch("http://localhost:3000/users", {
+        fetch("http://localhost:3000/users", {//Vai buscar a lista de todos os utilizadores para mostrar na tabela de gestão
             headers: { "Authorization": `Bearer ${token}` }
         })
     ]);
 
+    // Se a resposta do utilizador não for ok, redireciona para login
     if (!resUtilizador.ok) {
         window.location.href = "/html/login.html";
         return;
     }
 
-    const utilizador = await resUtilizador.json();
-    const todosUtilizadores = await resUsers.json();
-    const nivel = Math.floor(utilizador.xp / 200) + 1;
-    const inicial = utilizador.nome[0].toUpperCase();
+    const utilizador = await resUtilizador.json();//Dados do utilizador atual
+    const todosUtilizadores = await resUsers.json();//Dados de todos os utilizadores para mostrar na tabela de gestão
+    const nivel = Math.floor(utilizador.xp / 200) + 1;//Calcula o nível do utilizador com base no XP (200 XP por nível)
+    const inicial = utilizador.nome[0].toUpperCase();//Pega a inicial do nome do utilizador para mostrar no avatar
 
+    // Renderiza o conteúdo da página com o perfil do admin, a tabela de gestão de utilizadores e o formulário de criação de missões
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -136,17 +142,19 @@ async function carregarAdmin() {
         </div>
     `;
 
+    // Adiciona os event listeners para os botões de logout, gestão de utilizadores e criação de missões
     document.getElementById("btnLogout").addEventListener("click", function () {
         localStorage.removeItem("sessaoAtiva");
         localStorage.removeItem("token");
         window.location.href = "/html/login.html";
     });
 
+    // Botões para dar/tirar admin
     document.querySelectorAll(".btn-role").forEach(btn => {
         btn.addEventListener("click", async function () {
             const id = this.dataset.id;
             const novoRole = this.classList.contains("btn-dar") ? "admin" : "user";
-            await fetch(`http://localhost:3000/users/${id}`, {
+            await fetch(`http://localhost:3000/users/${id}`, {//Faz patch para atualizar o role do utilizador
                 method: "PATCH",
                 headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
                 body: JSON.stringify({ role: novoRole })
@@ -155,10 +163,11 @@ async function carregarAdmin() {
         });
     });
 
+    // Botões para excluir conta
     document.querySelectorAll(".btn-excluir").forEach(btn => {
         btn.addEventListener("click", async function () {
             const id = this.dataset.id;
-            await fetch(`http://localhost:3000/users/${id}`, {
+            await fetch(`http://localhost:3000/users/${id}`, {//Faz delete para excluir o utilizador
                 method: "DELETE",
                 headers: { "Authorization": `Bearer ${token}` }
             });
@@ -166,6 +175,7 @@ async function carregarAdmin() {
         });
     });
 
+    // Botão para criar missão
     document.getElementById("btnCriarMissao").addEventListener("click", async function () {
         const titulo = document.getElementById("missaoTitulo").value.trim();
         const descricao = document.getElementById("missaoDescricao").value.trim();
@@ -177,12 +187,13 @@ async function carregarAdmin() {
 
         const novaMissao = new Missao(titulo, descricao, tipo, meta, xp);
 
-        await fetch("http://localhost:3000/missoes", {
+        await fetch("http://localhost:3000/missoes", { //Faz post para criar uma nova missão
             method: "POST",
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
             body: JSON.stringify(novaMissao)
-        });
+        });// Não é necessário redesenhar a página porque a missão nova só aparecerá quando o admin for criar outra missão ou quando os utilizadores forem ver as missões disponíveis, então basta mostrar uma mensagem de sucesso e limpar o formulário
 
+        // Limpa o formulário e mostra uma mensagem de sucesso temporária
         document.getElementById("missaoTitulo").value = "";
         document.getElementById("missaoDescricao").value = "";
         document.getElementById("missaoMeta").value = "";

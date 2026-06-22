@@ -1,13 +1,16 @@
-export function renderNavbar(activePage) {
+export function renderNavbar(activePage) {// Função para renderizar a barra de navegação com base na página ativa
+    // Obtém o utilizador da sessão ativa do localStorage
     const utilizador = JSON.parse(localStorage.getItem("sessaoAtiva"));
 
+    // Se não houver utilizador na sessão ativa, redireciona para a página de login
     if (!utilizador) {
         window.location.href = "/html/login.html";
         return;
     }
 
-    const nivel = Math.floor(utilizador.xp / 200) + 1;
+    const nivel = Math.floor(utilizador.xp / 200) + 1;// Calcula o nível do utilizador com base no XP
 
+    // Define as páginas da barra de navegação com base no papel do utilizador (admin ou não)
     const pages = [
         { nome: "Início", href: "/html/principal.html", icon: "fa-house" },
         { nome: "Sessões", href: "/html/foco.html", icon: "fa-stopwatch" },
@@ -17,7 +20,7 @@ export function renderNavbar(activePage) {
         { nome: "Definições", href: utilizador.role === "admin" ? "/html/admin.html" : "/html/perfil.html", icon: "fa-gear" }
     ];
 
-
+    // Renderiza a barra lateral com o logotipo, menu de navegação e perfil do utilizador
     document.getElementById("sidebar").innerHTML = `
         <aside class="sidebar">
             <img src="/img/logotipo.png" class="logo" />

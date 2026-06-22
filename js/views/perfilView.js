@@ -1,29 +1,36 @@
 import { renderNavbar } from "./navbarView.js";
 
+//Vai buscar a sessao ativa e o token do localStorage
 const sessao = JSON.parse(localStorage.getItem("sessaoAtiva"));
 const token = localStorage.getItem("token");
 
+//Se não houver sessao ativa ou token, redireciona para a página de login
 if (!sessao || !token) {
     window.location.href = "/html/login.html";
 }
 
-renderNavbar("Definições");
+renderNavbar("Definições");//Renderiza a barra de navegação com a página "Definições" como ativa
 
+//Função para carregar e exibir o perfil do utilizador
 async function carregarPerfil() {
 
+    //Faz uma requisição para obter os dados do utilizador com base no ID da sessão ativa
     const resposta = await fetch(`http://localhost:3000/users/${sessao.id}`, {
         headers: { "Authorization": `Bearer ${token}` }
     });
 
+    //Se a requisição falhar, redireciona para a página de login
     if (!resposta.ok) {
         window.location.href = "/html/login.html";
         return;
     }
 
+    //Obtém os dados do utilizador da resposta da requisição
     const utilizador = await resposta.json();
     const nivel = Math.floor(utilizador.xp / 200) + 1;
     const inicial = utilizador.nome[0].toUpperCase();
 
+    //Seleciona o elemento de conteúdo da página para exibir o perfil do utilizador
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -114,16 +121,19 @@ async function carregarPerfil() {
         </div>
     `;
 
+    // Adiciona event listeners para os botões e campos de entrada do perfil
     document.getElementById("btnLogout").addEventListener("click", function () {
         localStorage.removeItem("sessaoAtiva");
         localStorage.removeItem("token");
         window.location.href = "/html/login.html";
     });
 
+    // Atualiza o contador de caracteres à medida que o utilizador digita na textarea
     document.getElementById("ideiaInput").addEventListener("input", function () {
         document.getElementById("counter").textContent = this.value.length;
     });
 
+    // Adiciona um event listener ao botão de envio de ideias para enviar o feedback do utilizador
     document.querySelector(".btn-send").addEventListener("click", function () {
         const input = document.getElementById("ideiaInput");
         if (input.value.trim() === "") return;

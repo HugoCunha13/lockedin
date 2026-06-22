@@ -1,5 +1,5 @@
 import { renderNavbar } from "./navbarView.js";
-import Tarefa from "../models/tarefaModel.js";//cria a estrututra das tarefas como id, nome, dia, número de sessões, duração das sessões, sessões concluídas, se está concluída ou não, XP de recompensa e notas.
+import Tarefa from "../models/tarefaModel.js";//cria a estrututra das tarefas como id, nome, dia, número de sessões, duração das sessões, sessões concluídas, se está concluída ou não, XP de recompensa e notas
 import {
     NOMES_MESES, NOMES_DIAS, chaveDia, hojeChave,
     chaveParaData, diaPorExtenso, gerarGrelhaMes
